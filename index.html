@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>RepFlow — Minimalist Workout Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <div class="site-header__branding">
+        <a href="#" id="headerLogo" class="logo" aria-label="RepFlow Home">
+          REP<span class="logo__accent">FLOW</span>
+        </a>
+        <span class="logo__tagline">Workout Tracker</span>
+      </div>
+
+      <div class="site-header__actions">
+        <button id="backButton" class="header-btn header-btn--back hidden" type="button" aria-label="Back to muscle groups">
+          <span aria-hidden="true">&larr;</span> Muscle Groups
+        </button>
+        <button id="globalAddBtn" class="header-btn header-btn--accent" type="button" title="Add a new custom exercise">
+          <span aria-hidden="true">+</span> Add Exercise
+        </button>
+        <button id="exportBtn" class="header-btn header-btn--ghost" type="button" title="Export workout data to JSON">
+          Export
+        </button>
+        <button id="importBtn" class="header-btn header-btn--ghost" type="button" title="Import workout data from JSON">
+          Import
+        </button>
+        <input type="file" id="importFileInput" accept=".json,application/json" class="hidden-input" aria-hidden="true" />
+      </div>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <!-- ==================== HOME VIEW: 7 MUSCLE GROUPS ==================== -->
+    <section id="homeView" class="view">
+      <div class="view__intro">
+        <div class="view__intro-main">
+          <h1 class="view__title">Target Muscle Group</h1>
+          <p class="view__subtitle">Select a muscle group to view your exercises, track progression, or add new routines.</p>
+        </div>
+      </div>
+      <div id="muscleGroupGrid" class="muscle-grid" role="list">
+        <!-- Muscle group cards injected by script.js -->
+      </div>
+    </section>
+
+    <!-- ==================== EXERCISE LIST VIEW ==================== -->
+    <section id="exerciseView" class="view hidden">
+      <div class="view__intro exercise-view-header">
+        <div>
+          <div class="view__breadcrumbs">
+            <span id="breadcrumbHome" class="breadcrumb-link">Muscle Groups</span>
+            <span class="breadcrumb-sep">&gt;</span>
+            <span id="breadcrumbGroup" class="breadcrumb-current">Chest</span>
+          </div>
+          <div class="title-with-badge">
+            <h1 id="exerciseViewTitle" class="view__title">Chest</h1>
+            <span id="exerciseCountBadge" class="count-badge">0 Exercises</span>
+          </div>
+          <p id="exerciseViewSubtitle" class="view__subtitle">Log your sets against your last session with automatic demonstration visuals.</p>
+        </div>
+        <button id="groupAddExerciseBtn" class="btn btn--accent" type="button">
+          <span aria-hidden="true">+</span> Add Exercise
+        </button>
+      </div>
+
+      <!-- Exercises Grid -->
+      <div id="exerciseList" class="exercise-list">
+        <!-- Exercise cards dynamically generated -->
+      </div>
+
+      <div id="noExercisesMessage" class="no-results hidden">
+        <div class="no-results__icon">🏋️</div>
+        <h3>No exercises in this group</h3>
+        <p>You haven't added any exercises to this muscle group yet.</p>
+        <button id="noExercisesAddBtn" class="btn btn--accent" type="button">+ Add Exercise</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FLOATING REST TIMER ==================== -->
+  <div id="restTimer" class="rest-timer" role="region" aria-label="Rest Timer">
+    <div class="rest-timer__header">
+      <span class="rest-timer__label">Rest Timer</span>
+      <div class="rest-timer__presets" aria-label="Timer presets">
+        <button class="timer-preset-btn" data-seconds="30" type="button">30s</button>
+        <button class="timer-preset-btn timer-preset-btn--active" data-seconds="60" type="button">60s</button>
+        <button class="timer-preset-btn" data-seconds="90" type="button">90s</button>
+      </div>
+    </div>
+    <div id="timerDisplay" class="rest-timer__display" aria-live="off">01:00</div>
+    <div id="timerStatus" class="rest-timer__status" aria-live="polite"></div>
+    <div class="rest-timer__controls">
+      <button id="timerStart" class="timer-btn timer-btn--start" type="button">Start</button>
+      <button id="timerPause" class="timer-btn" type="button">Pause</button>
+      <button id="timerReset" class="timer-btn" type="button">Reset</button>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: ADD / EDIT EXERCISE ==================== -->
+  <div id="exerciseModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 id="modalTitle" class="modal-title">Add Exercise</h2>
+        <button id="modalCloseBtn" class="modal-close-btn" type="button" aria-label="Close modal">&times;</button>
+      </div>
+      <form id="exerciseForm" class="modal-form" novalidate>
+        <input type="hidden" id="formExerciseId" value="" />
+
+        <div class="form-group">
+          <label for="formExerciseName" class="form-label">Exercise Name <span class="required">*</span></label>
+          <input
+            type="text"
+            id="formExerciseName"
+            class="form-input"
+            placeholder="e.g. Incline Dumbbell Curl"
+            required
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="formEmbedCode" class="form-label">YouTube Embed Code</label>
+          <textarea
+            id="formEmbedCode"
+            class="form-textarea"
+            rows="4"
+            placeholder='Paste YouTube embed code or URL, e.g.:&#10;&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" title="YouTube video player" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'
+          ></textarea>
+          <span id="embedCodeError" class="form-error hidden">Invalid YouTube embed code. Please paste a valid YouTube iframe or youtube.com/embed/... URL.</span>
+          <span class="form-hint">Paste the complete YouTube iframe embed code or embed URL. Leave empty if no video is desired.</span>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="formMuscleGroup" class="form-label">Target Muscle Group <span class="required">*</span></label>
+            <select id="formMuscleGroup" class="form-select" required>
+              <option value="chest">Chest</option>
+              <option value="back">Back</option>
+              <option value="shoulders">Shoulders</option>
+              <option value="biceps">Biceps</option>
+              <option value="triceps">Triceps</option>
+              <option value="legs">Legs</option>
+              <option value="forearms">Forearms</option>
+              <option value="abs">Abs</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="formEquipment" class="form-label">Equipment</label>
+            <select id="formEquipment" class="form-select">
+              <option value="dumbbell">Dumbbell</option>
+              <option value="barbell">Barbell</option>
+              <option value="bodyweight">Bodyweight</option>
+              <option value="cable">Cable</option>
+              <option value="machine">Machine</option>
+              <option value="kettlebell">Kettlebell</option>
+              <option value="band">Resistance Band</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="formDefaultSets" class="form-label">Default Sets</label>
+            <input
+              type="number"
+              id="formDefaultSets"
+              class="form-input"
+              min="1"
+              max="10"
+              value="3"
+            />
+          </div>
+          <div class="form-group">
+            <label for="formDefaultReps" class="form-label">Default Reps</label>
+            <input
+              type="number"
+              id="formDefaultReps"
+              class="form-input"
+              min="1"
+              max="100"
+              value="12"
+            />
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button id="modalCancelBtn" class="btn btn--secondary" type="button">Cancel</button>
+          <button id="modalSaveBtn" class="btn btn--accent" type="submit">Save Exercise</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: DELETE CONFIRMATION ==================== -->
+  <div id="deleteModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="deleteModalTitle">
+    <div class="modal-card modal-card--sm">
+      <div class="modal-header">
+        <h2 id="deleteModalTitle" class="modal-title">Delete Exercise</h2>
+        <button id="deleteModalCloseBtn" class="modal-close-btn" type="button" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p id="deleteModalMessage" class="modal-text">Are you sure you want to delete this exercise? This will also remove all saved workout history for it.</p>
+      </div>
+      <div class="modal-actions">
+        <button id="deleteModalCancelBtn" class="btn btn--secondary" type="button">Cancel</button>
+        <button id="deleteModalConfirmBtn" class="btn btn--danger" type="button">Yes, Delete Exercise</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: WORKOUT HISTORY ==================== -->
+  <div id="historyModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="historyModalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h2 id="historyModalTitle" class="modal-title">Workout History</h2>
+          <span id="historyExerciseSubtitle" class="modal-subtitle"></span>
+        </div>
+        <button id="historyModalCloseBtn" class="modal-close-btn" type="button" aria-label="Close modal">&times;</button>
+      </div>
+      <div id="historyModalContent" class="history-content">
+        <!-- Rendered list of past workouts -->
+      </div>
+      <div class="modal-actions">
+        <button id="historyModalDoneBtn" class="btn btn--secondary" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: IMPORT CONFIRMATION ==================== -->
+  <div id="importModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="importModalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 id="importModalTitle" class="modal-title">Import Workout Data</h2>
+        <button id="importModalCloseBtn" class="modal-close-btn" type="button" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p id="importSummaryText" class="modal-text"></p>
+        <div class="import-options">
+          <label class="import-radio">
+            <input type="radio" name="importMode" value="merge" checked />
+            <span class="import-radio__box">
+              <strong>Merge with existing data</strong>
+              <small>Preserves current exercises and adds new ones.</small>
+            </span>
+          </label>
+          <label class="import-radio">
+            <input type="radio" name="importMode" value="overwrite" />
+            <span class="import-radio__box">
+              <strong>Overwrite all existing data</strong>
+              <small class="text-danger">Replaces all exercises, progression and history with this file.</small>
+            </span>
+          </label>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button id="importModalCancelBtn" class="btn btn--secondary" type="button">Cancel</button>
+        <button id="importModalConfirmBtn" class="btn btn--accent" type="button">Confirm Import</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TOAST NOTIFICATION CONTAINER ==================== -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- App scripts in dependency order -->
+  <script src="exercises.js"></script>
+  <script src="db.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
