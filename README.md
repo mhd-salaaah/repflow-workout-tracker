@@ -74,7 +74,7 @@ repflow-workout-tracker/
 
 Try RepFlow directly in your browser:
 
-**https://mhd-salaaah.github.io/repflow-workout-tracker/**
+**[https://mhd-salaaah.github.io/repflow-workout-tracker/](https://mhd-salaaah.github.io/repflow-workout-tracker/)**
 
 Hosted using **GitHub Pages** — a free static website hosting service.
 
