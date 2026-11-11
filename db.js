@@ -4,7 +4,7 @@
    ============================================================ */
 
 const DB_NAME = "IronLogDB";
-const DB_VERSION = 4;
+const DB_VERSION = 6;
 
 let dbInstance = null;
 
@@ -77,36 +77,66 @@ function initDB() {
 async function seedDefaultExercisesIfNeeded() {
   const existing = await getAllExercises();
   if (existing.length === 0 && typeof INITIAL_EXERCISES !== "undefined") {
-    const tx = dbInstance.transaction(["exercises"], "readwrite");
+    const tx = dbInstance.transaction(["exercises", "progression"], "readwrite");
     const store = tx.objectStore("exercises");
     INITIAL_EXERCISES.forEach((ex) => store.put(ex));
+
+    if (typeof INITIAL_PROGRESSION !== "undefined" && Array.isArray(INITIAL_PROGRESSION)) {
+      const progStore = tx.objectStore("progression");
+      INITIAL_PROGRESSION.forEach((p) => progStore.put(p));
+    }
+
     return new Promise((resolve, reject) => {
       tx.oncomplete = () => resolve();
       tx.onerror = () => reject(tx.error);
     });
   } else if (existing.length > 0 && typeof INITIAL_EXERCISES !== "undefined") {
-    // 1. Seed any new starter exercises that don't exist yet (e.g. Abs routines)
-    const tx = dbInstance.transaction(["exercises"], "readwrite");
+    const tx = dbInstance.transaction(["exercises", "progression"], "readwrite");
     const store = tx.objectStore("exercises");
     const existingIds = new Set(existing.map((item) => item.id));
 
+    // 1. Remove "chest-standing-fly" if it was previously saved in the database
+    if (existingIds.has("chest-standing-fly")) {
+      store.delete("chest-standing-fly");
+    }
+
+    // 2. Remove legacy custom chest pullover id so standard "chest-pullover" is used
+    if (existingIds.has("custom-1794364964997-9vxo4")) {
+      store.delete("custom-1794364964997-9vxo4");
+    }
+
+    // 3. Seed any starter exercises that don't exist yet (including chest-pullover)
     INITIAL_EXERCISES.forEach((starterEx) => {
-      if (!existingIds.has(starterEx.id)) {
+      if (!existingIds.has(starterEx.id) || starterEx.id === "chest-pullover") {
         store.put(starterEx);
       }
     });
 
-    // 2. Backfill any missing YouTube embed codes for starter exercises
+    // 4. Update default exercises with the latest official YouTube embed codes & IDs
     existing.forEach((item) => {
+      if (item.id === "chest-standing-fly" || item.id === "custom-1794364964997-9vxo4") return;
+
       const defaultMatch = INITIAL_EXERCISES.find((i) => i.id === item.id);
       if (defaultMatch) {
         let changed = false;
-        if (!item.youtubeId && defaultMatch.youtubeId) {
+        if (item.isCustom) {
+          delete item.isCustom;
+          changed = true;
+        }
+        if (defaultMatch.youtubeId && item.youtubeId !== defaultMatch.youtubeId) {
           item.youtubeId = defaultMatch.youtubeId;
           changed = true;
         }
-        if (!item.rawEmbedCode && defaultMatch.rawEmbedCode) {
+        if (defaultMatch.rawEmbedCode && item.rawEmbedCode !== defaultMatch.rawEmbedCode) {
           item.rawEmbedCode = defaultMatch.rawEmbedCode;
+          changed = true;
+        }
+        if (defaultMatch.name && item.name !== defaultMatch.name) {
+          item.name = defaultMatch.name;
+          changed = true;
+        }
+        if (defaultMatch.defaultReps && item.defaultReps !== 12) {
+          item.defaultReps = 12;
           changed = true;
         }
         if (changed) {
@@ -114,6 +144,18 @@ async function seedDefaultExercisesIfNeeded() {
         }
       }
     });
+
+    // 3. Seed progression if currently empty
+    if (typeof INITIAL_PROGRESSION !== "undefined" && Array.isArray(INITIAL_PROGRESSION)) {
+      const progStore = tx.objectStore("progression");
+      const countReq = progStore.count();
+      countReq.onsuccess = () => {
+        if (countReq.result === 0) {
+          INITIAL_PROGRESSION.forEach((p) => progStore.put(p));
+        }
+      };
+    }
+
     return new Promise((resolve) => {
       tx.oncomplete = () => resolve();
       tx.onerror = () => resolve();
