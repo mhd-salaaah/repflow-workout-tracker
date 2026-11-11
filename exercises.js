@@ -39,19 +39,8 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 0,
-    youtubeId: "VmB1G1K7v94",
-    rawEmbedCode: buildStandardEmbedCode("VmB1G1K7v94"),
-  },
-  {
-    id: "chest-incline-press",
-    name: "Incline Dumbbell Press",
-    muscleGroup: "chest",
-    equipment: "dumbbell",
-    defaultSets: DEFAULT_SETS,
-    defaultReps: DEFAULT_REPS,
-    order: 1,
-    youtubeId: "8iPEnn-ltC8",
-    rawEmbedCode: buildStandardEmbedCode("8iPEnn-ltC8"),
+    youtubeId: "YQ2s_Y7g5Qk",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/YQ2s_Y7g5Qk?si=tN9P5aClGcBeSYeP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
   {
     id: "chest-flyes",
@@ -60,20 +49,20 @@ const INITIAL_EXERCISES = [
     equipment: "dumbbell",
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
-    order: 2,
-    youtubeId: "eozdVDA78K0",
-    rawEmbedCode: buildStandardEmbedCode("eozdVDA78K0"),
+    order: 1,
+    youtubeId: "Nhvz9EzdJ4U",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/Nhvz9EzdJ4U?si=B_JwrrUna9wU6JkZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
   {
-    id: "chest-standing-fly",
-    name: "Standing Dumbbell Chest Fly",
+    id: "chest-pullover",
+    name: "Dumbbell Pullover",
     muscleGroup: "chest",
     equipment: "dumbbell",
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
-    order: 3,
-    youtubeId: "Z57CtFmRMwg",
-    rawEmbedCode: buildStandardEmbedCode("Z57CtFmRMwg"),
+    order: 2,
+    youtubeId: "CmgP3fDguaM",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/CmgP3fDguaM?si=UakPcHiI2F9l_n4M&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
 
   // ---------------- Back ----------------
@@ -85,8 +74,8 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 0,
-    youtubeId: "dFzUjzfih7k",
-    rawEmbedCode: buildStandardEmbedCode("dFzUjzfih7k"),
+    youtubeId: "DMo3HJoawrU",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/DMo3HJoawrU?si=sH5FYQMCjR5PoyvY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
   {
     id: "back-deadlift",
@@ -96,8 +85,8 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 1,
-    youtubeId: "lJ3QwaXNJfw",
-    rawEmbedCode: buildStandardEmbedCode("lJ3QwaXNJfw"),
+    youtubeId: "xAL7lHwj30E",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/xAL7lHwj30E?si=czYXhSX3SCcErLkh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
   {
     id: "back-pullover",
@@ -107,19 +96,19 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 2,
-    youtubeId: "FK4rHfWKEac",
-    rawEmbedCode: buildStandardEmbedCode("FK4rHfWKEac"),
+    youtubeId: "jQjWlIwG4sI",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/jQjWlIwG4sI?si=oswTJWhAoGRMMIA3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
   {
     id: "back-incline-shrugs",
-    name: "Incline Shrugs",
+    name: "Shrugs",
     muscleGroup: "back",
     equipment: "dumbbell",
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 3,
-    youtubeId: "Y3Qe79u747A",
-    rawEmbedCode: buildStandardEmbedCode("Y3Qe79u747A"),
+    youtubeId: "jIKfmiWh590",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/jIKfmiWh590?si=68Lj5XBpr8Z5Zy_-&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
 
   // ---------------- Shoulders ----------------
@@ -131,8 +120,8 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 0,
-    youtubeId: "qEwKCR5JCog",
-    rawEmbedCode: buildStandardEmbedCode("qEwKCR5JCog"),
+    youtubeId: "t-hqRPjpaw8",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/t-hqRPjpaw8?si=IB0URv6sPwr4Vzh3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
   {
     id: "shoulders-lateral-raise",
@@ -142,8 +131,8 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 1,
-    youtubeId: "3VcKaXpzqRo",
-    rawEmbedCode: buildStandardEmbedCode("3VcKaXpzqRo"),
+    youtubeId: "XPPfnSEATJA",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/XPPfnSEATJA?si=5HiK6Z1xXzYqec0R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
   {
     id: "shoulders-rear-delt-raise",
@@ -153,19 +142,8 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 2,
-    youtubeId: "EA7u4Q_8HQ0",
-    rawEmbedCode: buildStandardEmbedCode("EA7u4Q_8HQ0"),
-  },
-  {
-    id: "shoulders-shrugs",
-    name: "Shrugs",
-    muscleGroup: "shoulders",
-    equipment: "dumbbell",
-    defaultSets: DEFAULT_SETS,
-    defaultReps: DEFAULT_REPS,
-    order: 3,
-    youtubeId: "cJRVVxmytaM",
-    rawEmbedCode: buildStandardEmbedCode("cJRVVxmytaM"),
+    youtubeId: "Z0HTsZEMedA",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/Z0HTsZEMedA?si=P5iN9sxh4uoRZEJQ&amp;start=29" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
 
   // ---------------- Biceps ----------------
@@ -177,8 +155,8 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 0,
-    youtubeId: "ykJmrZ5v0Oo",
-    rawEmbedCode: buildStandardEmbedCode("ykJmrZ5v0Oo"),
+    youtubeId: "6DeLZ6cbgWQ",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/6DeLZ6cbgWQ?si=yN0Dn2fFRUWgbno2&amp;start=29" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
   {
     id: "biceps-hammer-curl",
@@ -188,8 +166,8 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 1,
-    youtubeId: "zC3nLlEvin4",
-    rawEmbedCode: buildStandardEmbedCode("zC3nLlEvin4"),
+    youtubeId: "0IAM2YtviQY",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/0IAM2YtviQY?si=6S1UBCCtzatxEqnf&amp;start=29" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
   {
     id: "biceps-concentration-curl",
@@ -199,8 +177,8 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 2,
-    youtubeId: "Jvj2wV0vOYU",
-    rawEmbedCode: buildStandardEmbedCode("Jvj2wV0vOYU"),
+    youtubeId: "VMbDQ8PZazY",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/VMbDQ8PZazY?si=bx4VvDvV_Ut-Moaj&amp;start=29" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
 
   // ---------------- Triceps ----------------
@@ -212,8 +190,8 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 0,
-    youtubeId: "_gsUck-7M74",
-    rawEmbedCode: buildStandardEmbedCode("_gsUck-7M74"),
+    youtubeId: "IV7SekKI7Ns",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/IV7SekKI7Ns?si=PGqsTV0Y7P8QFg96&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
   {
     id: "triceps-close-grip-press",
@@ -223,8 +201,8 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 1,
-    youtubeId: "VcgN43a2gE8",
-    rawEmbedCode: buildStandardEmbedCode("VcgN43a2gE8"),
+    youtubeId: "eebXpmPGy2Y",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/eebXpmPGy2Y?si=s3CKKNOAdcj6zzZ9&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
   {
     id: "triceps-skull-crushers",
@@ -234,8 +212,8 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 2,
-    youtubeId: "d_KZxkY_0cM",
-    rawEmbedCode: buildStandardEmbedCode("d_KZxkY_0cM"),
+    youtubeId: "jPjhQ2hsAds",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/jPjhQ2hsAds?si=hIm6moAcwKhk5kkS&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
   {
     id: "triceps-kickback",
@@ -245,8 +223,8 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 3,
-    youtubeId: "ZO81bExngMI",
-    rawEmbedCode: buildStandardEmbedCode("ZO81bExngMI"),
+    youtubeId: "m_UlDFNX4mk",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/m_UlDFNX4mk?si=twhcHd7vqOM7396y&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
 
   // ---------------- Legs ----------------
@@ -258,8 +236,8 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 0,
-    youtubeId: "v_Cg5UvB70c",
-    rawEmbedCode: buildStandardEmbedCode("v_Cg5UvB70c"),
+    youtubeId: "MJao9o7ROs0",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/MJao9o7ROs0?si=_zWSQemYilTL2kZp&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
   {
     id: "legs-lunge",
@@ -269,8 +247,8 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 1,
-    youtubeId: "D7KaRcUTQeE",
-    rawEmbedCode: buildStandardEmbedCode("D7KaRcUTQeE"),
+    youtubeId: "lf4gJgKyLpI",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/lf4gJgKyLpI?si=ce6i3QXilYt8tPz8&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
   {
     id: "legs-romanian-deadlift",
@@ -280,8 +258,8 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 2,
-    youtubeId: "7j-2w4-P14I",
-    rawEmbedCode: buildStandardEmbedCode("7j-2w4-P14I"),
+    youtubeId: "xAL7lHwj30E",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/xAL7lHwj30E?si=xjmAHsiEzOBzu-iC&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
   {
     id: "legs-calf-raise",
@@ -291,8 +269,8 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 3,
-    youtubeId: "gwLzBJYoWlI",
-    rawEmbedCode: buildStandardEmbedCode("gwLzBJYoWlI"),
+    youtubeId: "hPA98_r-6e4",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/hPA98_r-6e4?si=QxQyKd6fUiWneBh2&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
 
   // ---------------- Forearms ----------------
@@ -304,8 +282,8 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 0,
-    youtubeId: "Q0PZkOq9s3w",
-    rawEmbedCode: buildStandardEmbedCode("Q0PZkOq9s3w"),
+    youtubeId: "3VLTzIrnb5g",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/3VLTzIrnb5g?si=va4A-l_bo27dkNKr&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
   {
     id: "forearms-reverse-wrist-curl",
@@ -315,8 +293,8 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 1,
-    youtubeId: "3V0A4rP_C_c",
-    rawEmbedCode: buildStandardEmbedCode("3V0A4rP_C_c"),
+    youtubeId: "osYPwlBiCRM",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/osYPwlBiCRM?si=j1Gs6nCUR4P3OvVY&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
   {
     id: "forearms-farmers-carry",
@@ -326,8 +304,8 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 2,
-    youtubeId: "p5M8QU36qHY",
-    rawEmbedCode: buildStandardEmbedCode("p5M8QU36qHY"),
+    youtubeId: "8OtwXwrJizk",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/8OtwXwrJizk?si=orttnnnhZ_d91TdQ&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
 
   // ---------------- Abs ----------------
@@ -339,8 +317,8 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 0,
-    youtubeId: "Kz6pGZ27k1s",
-    rawEmbedCode: buildStandardEmbedCode("Kz6pGZ27k1s"),
+    youtubeId: "v2fpgjq6L5M",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/v2fpgjq6L5M?si=mxfajDO3rYMziF7r&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
   {
     id: "abs-russian-twists",
@@ -350,19 +328,112 @@ const INITIAL_EXERCISES = [
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 1,
-    youtubeId: "wkD8rjkodUI",
-    rawEmbedCode: buildStandardEmbedCode("wkD8rjkodUI"),
+    youtubeId: "Hn0sdqn2t7k",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/Hn0sdqn2t7k?si=cc1WjFbIu8XD6xqj&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
   },
   {
     id: "abs-leg-drops",
-    name: "Dumbbell Leg Drops",
+    name: "Leg Drops",
     muscleGroup: "abs",
-    equipment: "dumbbell",
+    equipment: "bodyweight",
     defaultSets: DEFAULT_SETS,
     defaultReps: DEFAULT_REPS,
     order: 2,
-    youtubeId: "JB2oyawG9KI",
-    rawEmbedCode: buildStandardEmbedCode("JB2oyawG9KI"),
+    youtubeId: "T83sB7ZTscc",
+    rawEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/T83sB7ZTscc?si=sueEXF1kEkqUBO0r&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+  },
+];
+
+/* Starter workout progression history from backup */
+const INITIAL_PROGRESSION = [
+  {
+    exerciseId: "back-deadlift",
+    lastSets: [13, 11, 10],
+    lastUpdated: 1794359184140,
+    history: [
+      {
+        timestamp: 1794359184139,
+        dateString: "Nov 11, 06:36 AM",
+        sets: [13, 11, 10],
+      },
+    ],
+  },
+  {
+    exerciseId: "back-incline-shrugs",
+    lastSets: [20, 18, 16],
+    lastUpdated: 1794360912276,
+    history: [
+      {
+        timestamp: 1794360912276,
+        dateString: "Nov 11, 07:05 AM",
+        sets: [20, 18, 16],
+      },
+    ],
+  },
+  {
+    exerciseId: "back-one-arm-row",
+    lastSets: [15, 13, 11],
+    lastUpdated: 1794358015328,
+    history: [
+      {
+        timestamp: 1794358015111,
+        dateString: "Nov 11, 06:16 AM",
+        sets: [15, 13, 11],
+      },
+      {
+        timestamp: 1794357639107,
+        dateString: "Nov 11, 06:10 AM",
+        sets: [15, 12, 12],
+      },
+    ],
+  },
+  {
+    exerciseId: "back-pullover",
+    lastSets: [13, 11, 9],
+    lastUpdated: 1794360028001,
+    history: [
+      {
+        timestamp: 1794360028001,
+        dateString: "Nov 11, 06:50 AM",
+        sets: [13, 11, 9],
+      },
+    ],
+  },
+  {
+    exerciseId: "biceps-concentration-curl",
+    lastSets: [8, 6, 4],
+    lastUpdated: 1794363130935,
+    history: [
+      {
+        timestamp: 1794363130935,
+        dateString: "Nov 11, 07:42 AM",
+        sets: [8, 6, 4],
+      },
+    ],
+  },
+  {
+    exerciseId: "biceps-curl",
+    lastSets: [15, 13, 11],
+    lastUpdated: 1794361619840,
+    history: [
+      {
+        timestamp: 1794361619840,
+        dateString: "Nov 11, 07:16 AM",
+        sets: [15, 13, 11],
+      },
+    ],
+  },
+  {
+    exerciseId: "biceps-hammer-curl",
+    lastSets: [9, 7, 6],
+    lastUpdated: 1794362297614,
+    history: [
+      {
+        timestamp: 1794362297614,
+        dateString: "Nov 11, 07:28 AM",
+        sets: [9, 7, 6],
+      },
+    ],
   },
 ];
 
