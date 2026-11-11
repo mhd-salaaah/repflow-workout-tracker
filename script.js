@@ -32,6 +32,13 @@ const exportBtn = document.getElementById("exportBtn");
 const importBtn = document.getElementById("importBtn");
 const importFileInput = document.getElementById("importFileInput");
 
+// Guide Elements
+const guideView = document.getElementById("guideView");
+const guideNavBtn = document.getElementById("guideNavBtn");
+const homeGuideLinkBtn = document.getElementById("homeGuideLinkBtn");
+const guideBackToHomeBtn = document.getElementById("guideBackToHomeBtn");
+const guideBreadcrumbHome = document.getElementById("guideBreadcrumbHome");
+
 // Modals: Add / Edit Exercise
 const exerciseModal = document.getElementById("exerciseModal");
 const modalTitle = document.getElementById("modalTitle");
@@ -142,7 +149,7 @@ async function renderMuscleGroupGrid() {
 }
 
 /* ============================================================
-   NAVIGATION: HOME & EXERCISE LIST
+   NAVIGATION: HOME, EXERCISE LIST & GUIDE
    ============================================================ */
 
 /**
@@ -160,10 +167,23 @@ async function openMuscleGroup(groupId) {
   exerciseViewSubtitle.textContent = `Log your ${group.label.toLowerCase()} sets and watch video demonstrations directly inside each card.`;
 
   homeView.classList.add("hidden");
+  if (guideView) guideView.classList.add("hidden");
   exerciseView.classList.remove("hidden");
   backButton.classList.remove("hidden");
 
   await renderExercisesForCurrentGroup();
+  window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+}
+
+/**
+ * Opens the dedicated Help & User Guide page.
+ */
+function openGuide() {
+  appState.currentMuscleGroup = null;
+  homeView.classList.add("hidden");
+  exerciseView.classList.add("hidden");
+  if (guideView) guideView.classList.remove("hidden");
+  backButton.classList.remove("hidden");
   window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
 }
 
@@ -173,6 +193,7 @@ async function openMuscleGroup(groupId) {
 async function goHome() {
   appState.currentMuscleGroup = null;
   exerciseView.classList.add("hidden");
+  if (guideView) guideView.classList.add("hidden");
   homeView.classList.remove("hidden");
   backButton.classList.add("hidden");
 
@@ -1018,6 +1039,11 @@ headerLogo.addEventListener("click", (e) => {
   e.preventDefault();
   goHome();
 });
+
+if (guideNavBtn) guideNavBtn.addEventListener("click", openGuide);
+if (homeGuideLinkBtn) homeGuideLinkBtn.addEventListener("click", openGuide);
+if (guideBackToHomeBtn) guideBackToHomeBtn.addEventListener("click", goHome);
+if (guideBreadcrumbHome) guideBreadcrumbHome.addEventListener("click", goHome);
 
 // Escape key closes open modals
 document.addEventListener("keydown", (e) => {
