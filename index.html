@@ -23,8 +23,11 @@
       </div>
 
       <div class="site-header__actions">
-        <button id="backButton" class="header-btn header-btn--back hidden" type="button" aria-label="Back to muscle groups">
+        <button id="backButton" class="header-btn header-btn--back hidden" type="button" aria-label="Back to dashboard">
           <span aria-hidden="true">&larr;</span> Muscle Groups
+        </button>
+        <button id="guideNavBtn" class="header-btn header-btn--ghost" type="button" title="Open RepFlow Help & User Guide">
+          <span aria-hidden="true">📖</span> Guide
         </button>
         <button id="globalAddBtn" class="header-btn header-btn--accent" type="button" title="Add a new custom exercise">
           <span aria-hidden="true">+</span> Add Exercise
@@ -41,13 +44,16 @@
   </header>
 
   <main id="mainContent">
-    <!-- ==================== HOME VIEW: 7 MUSCLE GROUPS ==================== -->
+    <!-- ==================== HOME VIEW: 8 MUSCLE GROUPS ==================== -->
     <section id="homeView" class="view">
       <div class="view__intro">
         <div class="view__intro-main">
           <h1 class="view__title">Target Muscle Group</h1>
           <p class="view__subtitle">Select a muscle group to view your exercises, track progression, or add new routines.</p>
         </div>
+        <button id="homeGuideLinkBtn" class="header-btn header-btn--ghost" type="button" title="View Help & User Guide">
+          <span aria-hidden="true">📖</span> Help &amp; Guide
+        </button>
       </div>
       <div id="muscleGroupGrid" class="muscle-grid" role="list">
         <!-- Muscle group cards injected by script.js -->
@@ -84,6 +90,383 @@
         <h3>No exercises in this group</h3>
         <p>You haven't added any exercises to this muscle group yet.</p>
         <button id="noExercisesAddBtn" class="btn btn--accent" type="button">+ Add Exercise</button>
+      </div>
+    </section>
+
+    <!-- ==================== HELP & USER GUIDE VIEW ==================== -->
+    <section id="guideView" class="view hidden">
+      <div class="view__intro guide-view-header">
+        <div>
+          <div class="view__breadcrumbs">
+            <span id="guideBreadcrumbHome" class="breadcrumb-link">Muscle Groups</span>
+            <span class="breadcrumb-sep">&gt;</span>
+            <span class="breadcrumb-current">Help &amp; User Guide</span>
+          </div>
+          <h1 class="view__title">Help &amp; User Guide</h1>
+          <p class="view__subtitle">Everything you need to master RepFlow — step-by-step instructions, video setups, progression tracking, and device backups.</p>
+        </div>
+        <button id="guideBackToHomeBtn" class="header-btn header-btn--back" type="button">
+          <span aria-hidden="true">&larr;</span> Back to Dashboard
+        </button>
+      </div>
+
+      <!-- Quick Jump Navigation Pills -->
+      <nav class="guide-nav" aria-label="Guide sections">
+        <a href="#guide-getting-started" class="guide-nav__pill">1. Getting Started</a>
+        <a href="#guide-custom-exercise" class="guide-nav__pill">2. Add Custom Exercise</a>
+        <a href="#guide-youtube-videos" class="guide-nav__pill">3. YouTube Videos</a>
+        <a href="#guide-managing-exercises" class="guide-nav__pill">4. Managing Exercises</a>
+        <a href="#guide-progression-tracking" class="guide-nav__pill">5. Tracking &amp; History</a>
+        <a href="#guide-rest-timer" class="guide-nav__pill">6. Rest Timer</a>
+        <a href="#guide-device-transfer" class="guide-nav__pill">7. Transfer &amp; Backup</a>
+        <a href="#guide-privacy" class="guide-nav__pill">8. Privacy &amp; Data</a>
+        <a href="#guide-faq" class="guide-nav__pill">9. FAQ</a>
+        <a href="#guide-author" class="guide-nav__pill guide-nav__pill--author">👤 Author</a>
+      </nav>
+
+      <div class="guide-content">
+        <!-- 1. Getting Started -->
+        <article id="guide-getting-started" class="guide-card">
+          <div class="guide-card__header">
+            <div class="guide-card__num">01</div>
+            <div>
+              <h2 class="guide-card__title">Getting Started</h2>
+              <p class="guide-card__desc">Overview of RepFlow and core navigation</p>
+            </div>
+          </div>
+          <div class="guide-card__body">
+            <p><strong>RepFlow</strong> is a minimal, privacy-focused gym workout tracker designed to help you log sets, monitor muscle group progression, and review exercise video demonstrations without distractions, ads, or account creation.</p>
+            
+            <h3 class="guide-section-subtitle">How Muscle Groups Are Organized</h3>
+            <p>Exercises are categorized into <strong>8 target muscle groups</strong>:</p>
+            <div class="guide-tags-grid">
+              <span class="guide-tag">💪 Chest</span>
+              <span class="guide-tag">🧍 Back</span>
+              <span class="guide-tag">🏋️ Shoulders</span>
+              <span class="guide-tag">🦾 Biceps</span>
+              <span class="guide-tag">🥊 Triceps</span>
+              <span class="guide-tag">🦵 Legs</span>
+              <span class="guide-tag">✊ Forearms</span>
+              <span class="guide-tag">🍫 Abs</span>
+            </div>
+
+            <h3 class="guide-section-subtitle">Selecting a Muscle Group &amp; Navigation</h3>
+            <ul class="guide-steps-list">
+              <li><strong>Select a Routine:</strong> From the homepage dashboard, click any muscle group card to open its dedicated workout page.</li>
+              <li><strong>Return Home:</strong> Click the <strong>&larr; Muscle Groups</strong> button in the top header or click the <strong>REPFLOW</strong> logo at any time to return to the muscle group dashboard.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 2. Adding a Custom Exercise -->
+        <article id="guide-custom-exercise" class="guide-card">
+          <div class="guide-card__header">
+            <div class="guide-card__num">02</div>
+            <div>
+              <h2 class="guide-card__title">Adding a Custom Exercise</h2>
+              <p class="guide-card__desc">Step-by-step instructions to create custom routines</p>
+            </div>
+          </div>
+          <div class="guide-card__body">
+            <ol class="guide-ordered-steps">
+              <li>
+                <strong>Click "Add Exercise":</strong> Use the green <code>+ Add Exercise</code> button in the top header, or the button inside any muscle group workout page.
+              </li>
+              <li>
+                <strong>Enter Exercise Name:</strong> Type the full name of the routine (e.g. <em>Incline Dumbbell Curl</em>).
+              </li>
+              <li>
+                <strong>Select Muscle Group:</strong> Choose the target group (Chest, Back, Shoulders, Biceps, Triceps, Legs, Forearms, or Abs).
+              </li>
+              <li>
+                <strong>Select Equipment:</strong> Choose the equipment type (Dumbbell, Barbell, Bodyweight, Cable, Machine, Kettlebell, Resistance Band, or Other).
+              </li>
+              <li>
+                <strong>Set Default Sets &amp; Reps:</strong> RepFlow defaults to <strong>3 sets</strong> and <strong>12 reps</strong>. Customize these targets for your routine.
+              </li>
+              <li>
+                <strong>Optional YouTube Video:</strong> Paste a YouTube iframe embed code (see Section 3 below) to attach a video demonstration.
+              </li>
+              <li>
+                <strong>Click "Save Exercise":</strong> The exercise immediately appears in the chosen muscle group's workout list.
+              </li>
+            </ol>
+            <div class="guide-callout guide-callout--info">
+              <span class="guide-callout__icon">💡</span>
+              <div class="guide-callout__text">
+                <strong>Local Persistence:</strong> All custom exercises are stored locally inside your browser's persistent IndexedDB database. You can add as many custom exercises as you wish without modifying code.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Adding YouTube Videos -->
+        <article id="guide-youtube-videos" class="guide-card">
+          <div class="guide-card__header">
+            <div class="guide-card__num">03</div>
+            <div>
+              <h2 class="guide-card__title">Adding YouTube Videos</h2>
+              <p class="guide-card__desc">How to embed video demonstrations on desktop and mobile</p>
+            </div>
+          </div>
+          <div class="guide-card__body">
+            <h3 class="guide-section-subtitle">Desktop Instructions</h3>
+            <ol class="guide-ordered-steps">
+              <li>Open <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="guide-link">YouTube</a> in your browser.</li>
+              <li>Find the exercise demonstration video you want.</li>
+              <li>Click the <strong>Share</strong> button located directly below the video.</li>
+              <li>Select the <strong>Embed</strong> option in the sharing popup.</li>
+              <li>Copy the complete <code>&lt;iframe&gt;...&lt;/iframe&gt;</code> embed code.</li>
+              <li>In RepFlow, click <strong>Add Exercise</strong> (or click <strong>Edit</strong> on an existing card).</li>
+              <li>Paste the iframe embed code into the <strong>YouTube Embed Code</strong> text area.</li>
+              <li>Click <strong>Save Exercise</strong>.</li>
+              <li>Click the card thumbnail or the <strong>Watch Video</strong> button to play the video inline inside the card!</li>
+            </ol>
+
+            <h3 class="guide-section-subtitle">Expected Iframe Structure</h3>
+            <div class="guide-code-box">
+              <code>&lt;iframe src="https://www.youtube.com/embed/VIDEO_ID" ...&gt;&lt;/iframe&gt;</code>
+            </div>
+
+            <h3 class="guide-section-subtitle">Mobile Tip</h3>
+            <p>YouTube's mobile app may not provide the Embed option directly. If you're using a mobile phone, you can:</p>
+            <ol class="guide-ordered-steps">
+              <li>Open the <a href="https://youtubeembedcode.com/en/" target="_blank" rel="noopener noreferrer" class="guide-link">YouTube Embed Code Generator</a> website.</li>
+              <li>Enter or paste the YouTube video URL.</li>
+              <li>Generate the embed code.</li>
+              <li>Copy the iframe code.</li>
+              <li>Paste it into the <strong>YouTube Embed Code</strong> field in RepFlow.</li>
+            </ol>
+
+            <div class="guide-callout guide-callout--warning">
+              <span class="guide-callout__icon">⚠️</span>
+              <div class="guide-callout__text">
+                <strong>Important Notes:</strong>
+                <ul>
+                  <li>Use the <code>&lt;iframe&gt;</code> embed code, not an ordinary YouTube watch URL, when the field expects embed code.</li>
+                  <li>RepFlow validates the embed code and extracts the video ID safely.</li>
+                  <li>Some videos may not play if embedding is disabled by the video owner.</li>
+                  <li>If a video does not play or shows Error 153 on local files (<code>file://</code>), try opening it directly on YouTube using the <strong>↗ Open on YouTube</strong> button.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. Managing Exercises -->
+        <article id="guide-managing-exercises" class="guide-card">
+          <div class="guide-card__header">
+            <div class="guide-card__num">04</div>
+            <div>
+              <h2 class="guide-card__title">Managing Exercises</h2>
+              <p class="guide-card__desc">Editing, deleting, reordering, and customizing routines</p>
+            </div>
+          </div>
+          <div class="guide-card__body">
+            <ul class="guide-features-list">
+              <li>
+                <strong>✏️ Editing an Exercise:</strong> Click the <strong>Edit</strong> button on any exercise card to update its name, equipment, embed code, default sets, or reps.
+              </li>
+              <li>
+                <strong>🗑️ Deleting an Exercise:</strong> Click the <strong>Delete</strong> button on the card. A confirmation popup will ask you to confirm. <em>Note: Deleting an exercise may also remove its associated progression history.</em>
+              </li>
+              <li>
+                <strong>▲ ▼ Reordering Exercises:</strong> Use the <strong>▲ (Up)</strong> and <strong>▼ (Down)</strong> arrow buttons in the upper-right corner of each card to organize your routine in workout order.
+              </li>
+              <li>
+                <strong>Changing Default Sets &amp; Reps:</strong> Update default sets and reps in the Edit modal (e.g. 3 sets, 12 reps) to set baseline targets.
+              </li>
+              <li>
+                <strong>Adding or Removing Sets While Recording:</strong> While logging a workout, use the <strong>+ Set</strong> and <strong>- Set</strong> buttons inside the card to add or remove sets dynamically for today's workout.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 5. Tracking Workouts and Progression -->
+        <article id="guide-progression-tracking" class="guide-card">
+          <div class="guide-card__header">
+            <div class="guide-card__num">05</div>
+            <div>
+              <h2 class="guide-card__title">Tracking Workouts and Progression</h2>
+              <p class="guide-card__desc">How to log reps, review past sessions, and track strength over time</p>
+            </div>
+          </div>
+          <div class="guide-card__body">
+            <ol class="guide-ordered-steps">
+              <li>Open a muscle group workout page.</li>
+              <li>Find the exercise you are performing.</li>
+              <li>Enter the reps completed for each set in the <strong>Today's Workout</strong> input fields.</li>
+              <li>Add or remove sets if needed using <strong>+ Set</strong> or <strong>- Set</strong>.</li>
+              <li>Click <strong>💾 Save Workout</strong>. A confirmation checkmark confirms the save.</li>
+              <li>View <strong>Previous Workout</strong> to compare performance against your last session.</li>
+              <li>Open <strong>📊 History</strong> to see previous workout sessions with date stamps and set details.</li>
+            </ol>
+            <div class="guide-callout guide-callout--success">
+              <span class="guide-callout__icon">📈</span>
+              <div class="guide-callout__text">
+                <strong>Progression Depth:</strong> RepFlow stores the latest progression and keeps up to <strong>30 previous sessions</strong> per exercise, ensuring you have long-term visibility into your strength trends.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. Rest Timer -->
+        <article id="guide-rest-timer" class="guide-card">
+          <div class="guide-card__header">
+            <div class="guide-card__num">06</div>
+            <div>
+              <h2 class="guide-card__title">Rest Timer</h2>
+              <p class="guide-card__desc">Floating rest interval counter with audio alerts</p>
+            </div>
+          </div>
+          <div class="guide-card__body">
+            <p>The floating Rest Timer widget stays pinned to the bottom-right corner of your screen, remaining accessible while scrolling through exercises.</p>
+            <ul class="guide-features-list">
+              <li><strong>Preset Intervals:</strong> Select <strong>30s</strong>, <strong>60s</strong> (default), or <strong>90s</strong> with one tap depending on your rest requirements.</li>
+              <li><strong>How to Start:</strong> Click the <strong>Start</strong> button to begin the countdown.</li>
+              <li><strong>How to Pause:</strong> Click <strong>Pause</strong> to temporarily freeze the countdown timer.</li>
+              <li><strong>How to Reset:</strong> Click <strong>Reset</strong> to return to the preset rest interval.</li>
+              <li><strong>Completion Notification:</strong> When the countdown reaches zero, the timer turns emerald green, sounds an audible chime via the Web Audio API, and shows an onscreen alert toast so you never miss your next set.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 7. Export and Import — Device Transfer and Backup -->
+        <article id="guide-device-transfer" class="guide-card guide-card--featured">
+          <div class="guide-card__header">
+            <div class="guide-card__num">07</div>
+            <div>
+              <h2 class="guide-card__title">Export and Import — Device Transfer and Backup</h2>
+              <p class="guide-card__desc">Crucial: How to transfer workout data between devices or browsers</p>
+            </div>
+          </div>
+          <div class="guide-card__body">
+            <p>This section is especially important. RepFlow is an offline-first tool, so transferring workout data from one device or browser to another is accomplished through JSON backup files.</p>
+            
+            <h3 class="guide-section-subtitle">Exporting Data:</h3>
+            <ol class="guide-ordered-steps">
+              <li>Open RepFlow on the device containing the workout data.</li>
+              <li>Click <strong>Export</strong> in the header.</li>
+              <li>A JSON backup file (<code>repflow-backup-YYYY-MM-DD.json</code>) will be downloaded.</li>
+              <li>Keep this file somewhere safe (Cloud storage, email, WhatsApp, or USB).</li>
+            </ol>
+
+            <h3 class="guide-section-subtitle">Importing Data:</h3>
+            <ol class="guide-ordered-steps">
+              <li>Open RepFlow on the new device or browser.</li>
+              <li>Click <strong>Import</strong>.</li>
+              <li>Select the previously exported JSON backup.</li>
+              <li>Review the import summary.</li>
+              <li>Choose the appropriate import mode:
+                <ul>
+                  <li><strong>Merge:</strong> Add imported data without clearing existing records.</li>
+                  <li><strong>Overwrite:</strong> Replace existing exercise and progression data with the imported backup.</li>
+                </ul>
+              </li>
+              <li>Confirm the import. Your data is immediately populated into the local database!</li>
+            </ol>
+
+            <div class="guide-callout guide-callout--warning">
+              <span class="guide-callout__icon">🚨</span>
+              <div class="guide-callout__text">
+                <strong>Important:</strong> RepFlow does not automatically synchronize data between devices. Each browser has its own local IndexedDB database. To transfer your workouts, manually export your data from one device and import it on another.<br /><br />
+                <em>Always export a backup before choosing Overwrite.</em>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8. Privacy and Data Storage -->
+        <article id="guide-privacy" class="guide-card">
+          <div class="guide-card__header">
+            <div class="guide-card__num">08</div>
+            <div>
+              <h2 class="guide-card__title">Privacy and Data Storage</h2>
+              <p class="guide-card__desc">Local database isolation and zero external tracking</p>
+            </div>
+          </div>
+          <div class="guide-card__body">
+            <ul class="guide-features-list">
+              <li><strong>Local Storage (IndexedDB):</strong> Workout data is stored locally using IndexedDB.</li>
+              <li><strong>No Account Required:</strong> RepFlow requires no login, email, password, or registration.</li>
+              <li><strong>No Cloud Synchronization:</strong> There is no cloud synchronization or remote tracking. Your workout numbers belong entirely to you.</li>
+              <li><strong>Browser Clearing Warning:</strong> Clearing browser data may delete saved workout information. Users should regularly export backups to prevent accidental data loss.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 9. Frequently Asked Questions -->
+        <article id="guide-faq" class="guide-card">
+          <div class="guide-card__header">
+            <div class="guide-card__num">09</div>
+            <div>
+              <h2 class="guide-card__title">Frequently Asked Questions</h2>
+              <p class="guide-card__desc">Quick answers to common questions</p>
+            </div>
+          </div>
+          <div class="guide-card__body">
+            <div class="faq-list">
+              <div class="faq-item">
+                <h4 class="faq-question">Q: Will my workout data appear on another device automatically?</h4>
+                <p class="faq-answer">No. Export your data from the old device and import it on the new device.</p>
+              </div>
+              <div class="faq-item">
+                <h4 class="faq-question">Q: What happens if I clear my browser data?</h4>
+                <p class="faq-answer">Your locally stored workout data may be deleted. Keep JSON backups.</p>
+              </div>
+              <div class="faq-item">
+                <h4 class="faq-question">Q: Why is my YouTube video not playing?</h4>
+                <p class="faq-answer">The video owner may have disabled embedding. Check the embed code or open the video directly on YouTube.</p>
+              </div>
+              <div class="faq-item">
+                <h4 class="faq-question">Q: Can I add my own exercises?</h4>
+                <p class="faq-answer">Yes. Use the Add Exercise button.</p>
+              </div>
+              <div class="faq-item">
+                <h4 class="faq-question">Q: Can I change sets and reps later?</h4>
+                <p class="faq-answer">Yes. You can edit default values and customize the sets for individual workouts.</p>
+              </div>
+              <div class="faq-item">
+                <h4 class="faq-question">Q: Where can I see my previous workouts?</h4>
+                <p class="faq-answer">Use the History button on the relevant exercise card.</p>
+              </div>
+              <div class="faq-item">
+                <h4 class="faq-question">Q: Can I use RepFlow without creating an account?</h4>
+                <p class="faq-answer">Yes. It works without registration.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- About the Author -->
+        <article id="guide-author" class="guide-card guide-card--author">
+          <div class="guide-card__header">
+            <div class="guide-card__num">👤</div>
+            <div>
+              <h2 class="guide-card__title">About the Author</h2>
+              <p class="guide-card__desc">Muhammed Salah — Cybersecurity &amp; IT enthusiast</p>
+            </div>
+          </div>
+          <div class="guide-card__body">
+            <div class="author-profile">
+              <div class="author-avatar" aria-hidden="true">MS</div>
+              <div class="author-details">
+                <h3 class="author-name">Muhammed Salah</h3>
+                <p class="author-role">Cybersecurity &amp; IT enthusiast</p>
+                <p class="author-bio">Interested in building minimal, practical tools.</p>
+                <div class="author-links">
+                  <a href="https://github.com/mhd-salaaah" target="_blank" rel="noopener noreferrer" class="author-link-btn">
+                    <span aria-hidden="true">🐙</span> GitHub: @mhd-salaaah &rarr;
+                  </a>
+                  <a href="https://www.linkedin.com/in/muhdsalah" target="_blank" rel="noopener noreferrer" class="author-link-btn author-link-btn--linkedin">
+                    <span aria-hidden="true">💼</span> LinkedIn: in/muhdsalah &rarr;
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
   </main>
